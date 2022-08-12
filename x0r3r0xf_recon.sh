@@ -68,7 +68,7 @@ printf "
 \e[96m##################################################\e[0m
 
 "
-python2.7 /home/x0r3r0xf/tools/Sublist3r/sublist3r.py -d $domain -v -o ./results/tools/sublist3r_subdomains.txt
+python3 /home/x0r3r0xf/tools/Sublist3r/sublist3r.py -d $domain -v -o ./results/tools/sublist3r_subdomains.txt
  printf "
 
 \e[96m##################################################\e[0m
@@ -109,9 +109,9 @@ rm -rf ./results/tools/gobuster_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-sudo mkdir -p ./results/tools/$domain-knockpy-fast/
-sudo chmod 777 ./results/tools$domain-knockpy-fast/
-python3 /home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
+#sudo mkdir -p ./results/tools/$domain-knockpy-fast/
+#sudo chmod 777 ./results/tools$domain-knockpy-fast/
+#python3 /home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
 
 #mkdir -p ./results/tools/$domain-knockpy-deep/
 #chmod 777 ./results/tools/$domain-knockpy-deep/
@@ -147,8 +147,7 @@ do
         cat  ./results/all_subdomains.txt | sed 's/www.//' | cut -d "." -f $i | sed -r '/^\s*$/d' >> ./results/specialx_wordlist.txt
 done
 
-cat ./results/special_wordlist.txt | sort -u | uniq > ./results/special_wordlist.txt
-rm -rf ./results/specialx_wordlist.txt
+cat ./results/specialx_wordlist.txt | sort -u | uniq > ./results/special_wordlist.txt
 
 
  printf "
@@ -171,32 +170,3 @@ cat ./results/all_subdomains.txt | /home/x0r3r0xf/go/bin/httpx -silent -mc 200,3
 
 
 #cat ./results/live_subdomains.txt | /usr/bin/aquatone -scan-timeout 3000 -threads 5 -silent -screenshot-timeout 50000 -http-timeout 20000 -out subs-screenshots-folder
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
