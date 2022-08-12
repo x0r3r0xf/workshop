@@ -41,7 +41,7 @@ cp  jsfiles.txt ../COMMONLY/
 
 for subdomain in $(cat $subdomains)
 do
-python3 ~/.tools/ParamSpider/paramspider.py --domain $subdomain --exclude png,js,woff,woff2,css,gif,jpeg,tif,tiff,ico,ttf,txt,jpg,svg --output results.txt
+python3 /home/x0r3r0xf/tools/ParamSpider/paramspider.py --domain $subdomain --exclude png,js,woff,woff2,css,gif,jpeg,tif,tiff,ico,ttf,txt,jpg,svg --output results.txt
 FILE=output/results.txt
 if test -f "$FILE"; then
 	cat output/results.txt >> subs_paramsx.txt
