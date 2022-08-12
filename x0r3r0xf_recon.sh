@@ -39,7 +39,7 @@ curl --silent --insecure "https://www.threatcrowd.org/searchApi/v2/domain/report
 \e[96m##################################################\e[0m
 
 "
-python3 ./tools/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
+python3 ~/tools/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
  printf "
 
 \e[96m##################################################\e[0m
@@ -68,7 +68,7 @@ printf "
 \e[96m##################################################\e[0m
 
 "
-python3 ~/tools/Sublist3r/sublist3r.py -d $domain -v -o "./results/tools/sublist3r_subdomains.txt"
+python3 /home/x0r3r0xf/tools/Sublist3r/sublist3r.py -d $domain -v -o ./results/tools/sublist3r_subdomains.txt
  printf "
 
 \e[96m##################################################\e[0m
@@ -76,7 +76,7 @@ python3 ~/tools/Sublist3r/sublist3r.py -d $domain -v -o "./results/tools/sublist
 \e[96m##################################################\e[0m
 
 "
-~/tools/findomain --quiet --target $domain -o
+/home/x0r3r0xf/tools/findomain --quiet --target $domain -o
 cat ./$domain.txt | sort -u | uniq | uro >> ./results/tools/findomain_subdomains2.txt
 rm -rf ./$domain.txt
 cat ./results/tools/findomain_subdomains2.txt | sed 's/:\/\///' >> ./results/tools/findomain_subdomains.txt
@@ -88,7 +88,7 @@ rm -rf ./results/tools/findomain_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-~/tools/subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
+/home/x0r3r0xf/subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
 
  printf "
 
@@ -111,7 +111,7 @@ rm -rf ./results/tools/gobuster_subdomains2.txt
 "
 mkdir -p ./results/tools/$domain-knockpy-fast/
 chmod 777 ./results/tools$domain-knockpy-fast/
-~/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
+/home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
 
 #mkdir -p ./results/tools/$domain-knockpy-deep/
 #chmod 777 ./results/tools/$domain-knockpy-deep/
