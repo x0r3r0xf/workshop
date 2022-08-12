@@ -39,7 +39,7 @@ curl --silent --insecure "https://www.threatcrowd.org/searchApi/v2/domain/report
 \e[96m##################################################\e[0m
 
 "
-python3 ~/tools/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
+python3 /home/x0r3r0xf/tools/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
  printf "
 
 \e[96m##################################################\e[0m
@@ -88,7 +88,7 @@ rm -rf ./results/tools/findomain_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-/home/x0r3r0xf/subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
+/home/x0r3r0xf/tools/subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
 
  printf "
 
@@ -97,7 +97,7 @@ rm -rf ./results/tools/findomain_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-gobuster dns -d $domain -w ./wordlist/subdomain_5000.txt -o "./results/tools/gobuster_subdomains2.txt"
+/home/x0r3r0xf/go/bin/gobuster dns -d $domain -w ./wordlist/subdomain_5000.txt -o "./results/tools/gobuster_subdomains2.txt"
 cat ./results/tools/gobuster_subdomains2.txt | cut -d " " -f 2 >> ./results/tools/gobuster_subdomains.txt
 rm -rf ./results/tools/gobuster_subdomains2.txt
 
@@ -109,8 +109,8 @@ rm -rf ./results/tools/gobuster_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-mkdir -p ./results/tools/$domain-knockpy-fast/
-chmod 777 ./results/tools$domain-knockpy-fast/
+sudo mkdir -p ./results/tools/$domain-knockpy-fast/
+sudo chmod 777 ./results/tools$domain-knockpy-fast/
 /home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
 
 #mkdir -p ./results/tools/$domain-knockpy-deep/
@@ -158,7 +158,7 @@ rm -rf ./results/specialx_wordlist.txt
 \e[96m##################################################\e[0m
 
 "
-cat ./results/all_subdomains.txt | httpx -silent -mc 200,301,302 | anew ./results/live_subdomains.txt
+cat ./results/all_subdomains.txt | /home/x0r3r0xf/go/bin/httpx -silent -mc 200,301,302 | /home/x0r3r0xf/go/bin/anew ./results/live_subdomains.txt
 
 
  printf "
