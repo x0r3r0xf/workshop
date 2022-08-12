@@ -39,7 +39,7 @@ curl --silent --insecure "https://www.threatcrowd.org/searchApi/v2/domain/report
 \e[96m##################################################\e[0m
 
 "
-python3 ./weapons/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
+python3 ./tools/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.txt
  printf "
 
 \e[96m##################################################\e[0m
@@ -47,7 +47,7 @@ python3 ./weapons/crtsh/crtsh.py -d $domain >> ./results/tools/apis_subdomain.tx
 \e[96m##################################################\e[0m
 
 "
-#amass enum -passive -norecursive -noalts -d $domain -o ./results/tools/amass_enum.txt
+amass enum -passive -norecursive -noalts -d $domain -o ./results/tools/amass_enum.txt
 printf "
 
 \e[96m##################################################\e[0m
@@ -68,7 +68,7 @@ printf "
 \e[96m##################################################\e[0m
 
 "
-python3 ./weapons/Sublist3r/sublist3r.py -d $domain -v -o "./results/tools/sublist3r_subdomains.txt"
+python3 ~/tools/Sublist3r/sublist3r.py -d $domain -v -o "./results/tools/sublist3r_subdomains.txt"
  printf "
 
 \e[96m##################################################\e[0m
@@ -76,7 +76,7 @@ python3 ./weapons/Sublist3r/sublist3r.py -d $domain -v -o "./results/tools/subli
 \e[96m##################################################\e[0m
 
 "
-/usr/bin/findomain --quiet --target $domain -o
+~/tools/findomain --quiet --target $domain -o
 cat ./$domain.txt | sort -u | uniq | uro >> ./results/tools/findomain_subdomains2.txt
 rm -rf ./$domain.txt
 cat ./results/tools/findomain_subdomains2.txt | sed 's/:\/\///' >> ./results/tools/findomain_subdomains.txt
@@ -88,7 +88,7 @@ rm -rf ./results/tools/findomain_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
+~/tools/subfinder -d $domain -o "./results/tools/subfinder_subdomains.txt"
 
  printf "
 
@@ -111,7 +111,7 @@ rm -rf ./results/tools/gobuster_subdomains2.txt
 "
 mkdir -p ./results/tools/$domain-knockpy-fast/
 chmod 777 ./results/tools$domain-knockpy-fast/
-knockpy $domain --no-http -o ./results/tools/$domain-knockpy-fast/
+~/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
 
 #mkdir -p ./results/tools/$domain-knockpy-deep/
 #chmod 777 ./results/tools/$domain-knockpy-deep/
@@ -144,8 +144,11 @@ i=0
 while [ $i -ne 7 ]
 do
         i=$(($i+1))
-        cat  ./results/all_subdomains.txt | sed 's/www.//' | cut -d "." -f $i | sed -r '/^\s*$/d' >> ./results/special_wordlist.txt
+        cat  ./results/all_subdomains.txt | sed 's/www.//' | cut -d "." -f $i | sed -r '/^\s*$/d' >> ./results/specialx_wordlist.txt
 done
+
+cat ./results/special_wordlist.txt | sort -u | uniq > ./results/special_wordlist.txt
+rm -rf ./results/specialx_wordlist.txt
 
 
  printf "
@@ -161,7 +164,7 @@ cat ./results/all_subdomains.txt | httpx -silent -mc 200,301,302 | anew ./result
  printf "
 
 \e[96m##################################################\e[0m
-   \e[96mScreenshooting live subdomains...\e[0m \e[31m>> aquatone <<\e[0m
+   \e[96mScreenshooting live subdomains...\e[0m \e[31m>> aquatone [Not working on VPS] <<\e[0m
 \e[96m##################################################\e[0m
 
 "
