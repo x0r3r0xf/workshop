@@ -68,7 +68,7 @@ printf "
 \e[96m##################################################\e[0m
 
 "
-python3 /home/x0r3r0xf/tools/Sublist3r/sublist3r.py -d $domain -v -o ./results/tools/sublist3r_subdomains.txt
+python2.7 /home/x0r3r0xf/tools/Sublist3r/sublist3r.py -d $domain -v -o ./results/tools/sublist3r_subdomains.txt
  printf "
 
 \e[96m##################################################\e[0m
