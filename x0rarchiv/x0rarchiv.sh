@@ -60,7 +60,7 @@ rm -rf  output Wayback.txt gauplus.txt subs_paramsx.txt
 cat WayGau.txt subs_params.txt | sort -u | anew |  httpx -silent -fc 404,301 -o all-InOne.txt
 mkdir results
 mv *.txt ./results/
-cat ./all-InOne.txt | grep "?" | qsreplace "FUZZ" > ../COMMONLY/all-inOne.txt
+cat ./results/all-InOne.txt | grep "?" | qsreplace "FUZZ" > ../COMMONLY/all-inOne.txt
 
 
 
