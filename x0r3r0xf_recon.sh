@@ -97,7 +97,7 @@ rm -rf ./results/tools/findomain_subdomains2.txt
 \e[96m##################################################\e[0m
 
 "
-/home/x0r3r0xf/go/bin/gobuster dns -d $domain -w ./wordlist/subdomain_5000.txt -o "./results/tools/gobuster_subdomains2.txt"
+/home/x0r3r0xf/go/bin/gobuster dns -d $domain -w /home/x0r3r0xf/wordlist/subdomain_5000.txt -o "./results/tools/gobuster_subdomains2.txt"
 cat ./results/tools/gobuster_subdomains2.txt | cut -d " " -f 2 >> ./results/tools/gobuster_subdomains.txt
 rm -rf ./results/tools/gobuster_subdomains2.txt
 
@@ -111,7 +111,7 @@ rm -rf ./results/tools/gobuster_subdomains2.txt
 "
 sudo mkdir -p ./results/tools/$domain-knockpy-fast/
 sudo chmod 777 ./results/tools$domain-knockpy-fast/
-/home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
+python3 /home/x0r3r0xf/tools/knock/knockpy.py $domain --no-http -o ./results/tools/$domain-knockpy-fast/
 
 #mkdir -p ./results/tools/$domain-knockpy-deep/
 #chmod 777 ./results/tools/$domain-knockpy-deep/
